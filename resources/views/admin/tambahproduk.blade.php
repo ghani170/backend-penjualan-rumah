@@ -13,7 +13,7 @@
     </div>
 @endif
 
-<form method="POST" action="{{ route('admin.tambahproduk.store') }}" enctype="multipart/form-data">
+<form id="formTambah" method="POST" action="{{ route('admin.tambahproduk.store') }}" enctype="multipart/form-data">
     @csrf
     <input type="text" name="nama_rumah" placeholder="Nama Rumah" class="border p-2 w-full mb-2" required>
     <textarea name="deskripsi" placeholder="Deskripsi" class="border p-2 w-full mb-2" required></textarea>
@@ -61,20 +61,25 @@
     <button class="bg-blue-600 text-white px-4 py-2 rounded mt-3">Simpan</button>
 </form>
 
-<script>
-document.querySelector("form").addEventListener("submit", function(e) {
-    let selects = document.querySelectorAll("select[name='tags[]']");
-    let values = Array.from(selects).map(s => s.value).filter(v => v !== "");
-    let uniqueValues = [...new Set(values)];
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    if (values.length !== uniqueValues.length) {
-        e.preventDefault();
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Tidak boleh memilih tag yang sama!',
-        });
-    }
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let form = document.getElementById("formTambah");
+    form.addEventListener("submit", function(e) {
+        let selects = document.querySelectorAll("select[name='tags[]']");
+        let values = Array.from(selects).map(s => s.value).filter(v => v !== "");
+        let uniqueValues = [...new Set(values)];
+
+        if (values.length !== uniqueValues.length) {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Tidak boleh memilih tag yang sama!',
+            });
+        }
+    });
 });
 </script>
 

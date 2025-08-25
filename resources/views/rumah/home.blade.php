@@ -1,27 +1,3 @@
-@foreach($rumah as $item)
-    <div class="border p-3 rounded shadow mb-4">
-        <h2 class="text-xl font-bold">{{ $item->nama_rumah }}</h2>
-        <p>{{ $item->lokasi }}</p>
-        <p>Harga: Rp {{ $item->harga }}</p>
-
-        {{-- tampilkan 1 gambar pertama --}}
-        @if($item->images->isNotEmpty())
-            <img src="{{ asset('storage/' . $item->images->first()->path) }}" 
-                 class="w-full h-40 object-cover rounded mt-2">
-        @endif
-
-        {{-- tampilkan semua tag --}}
-        <div class="mt-2">
-            @foreach($item->tags as $tag)
-                <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-sm">
-                    {{ $tag->nama }}
-                </span>
-            @endforeach
-        </div>
-    </div>
-@endforeach
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

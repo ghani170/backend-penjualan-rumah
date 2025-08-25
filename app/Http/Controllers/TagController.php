@@ -43,7 +43,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('admin.tambahtags', compact('tags'));
+        return view('admin.edittags', compact('tag'));
     }
 
     /**
@@ -57,7 +57,7 @@ class TagController extends Controller
 
         $tag->update($request->all());
 
-        return redirect('admin.tambahtags')->with('success', 'Tag Berhasil Di Edit');
+        return redirect()->route('admin.tags')->with('success', 'Tag Berhasil Di Edit');
     }
 
     /**

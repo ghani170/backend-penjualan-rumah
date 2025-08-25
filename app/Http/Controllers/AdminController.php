@@ -14,7 +14,7 @@ class AdminController extends Controller
     }
 
     public function showcreate() {
-        $tags = \App\Models\Tag::all();
+        $tags = Tag::all();
         return view('admin.tambahproduk', compact('tags'));
 
     }
@@ -30,7 +30,6 @@ class AdminController extends Controller
             'gambar3'    => 'required|image|mimes:jpeg,png,jpg|max:20048',
             'gambar4'    => 'required|image|mimes:jpeg,png,jpg|max:20048',
             'gambar5'    => 'required|image|mimes:jpeg,png,jpg|max:20048',
-            'tags'       => 'array',
             'tags'       => 'required|array|min:1',
             'tags.*'     => 'exists:tags,id',
         ]);

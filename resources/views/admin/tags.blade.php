@@ -7,8 +7,6 @@
         <a href="{{ route('tags.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 ease-in-out shadow-md">+ Tambah Tag</a>
     </div>
 
-   
-
     @if(session('success'))
     <script>
         Swal.fire({
@@ -38,7 +36,15 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $tag->nama }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <a href="#" class="text-blue-600 hover:text-blue-900">Edit</a>
+                            {{-- Tombol Edit pakai modal --}}
+                            <button 
+                                class="text-blue-600 hover:text-blue-900 editBtn"
+                                data-id="{{ $tag->id }}"
+                                data-nama="{{ $tag->nama }}">
+                                Edit
+                            </button>
+
+                            {{-- Tombol Hapus --}}
                             <form action="{{ route('tags.destroy', $tag->id) }}" method="POST" class="inline-block ml-4">
                                 @csrf
                                 @method('DELETE')
@@ -52,4 +58,64 @@
         </div>
     </div>
 </div>
+
+{{-- Modal Edit --}}
+<div id="editModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg w-96 shadow-lg">
+        <form id="editForm" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="p-6">
+                <h2 class="text-xl font-bold mb-4">Edit Tag</h2>
+                <label for="nama" class="block text-sm font-medium text-gray-700">Nama Tag:</label>
+                <input type="text" id="nama_tag" name="nama" class="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2" required>
+            </div>
+            <div class="flex justify-end space-x-2 p-4 border-t">
+                <button type="button" id="closeModal" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">Batal</button>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 @endsection
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const editButtons = document.querySelectorAll(".editBtn");
+    const editForm = document.getElementById("editForm");
+    const namaInput = document.getElementById("nama_tag");
+    const modal = document.getElementById("editModal");
+    const closeModalBtn = document.getElementById("closeModal");
+
+    editButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+            let id = this.getAttribute("data-id");
+            let nama = this.getAttribute("data-nama");
+
+            // isi form
+            namaInput.value = nama;
+
+            // ubah action form
+            editForm.action = "/tags/" + id;
+
+            // tampilkan modal
+            modal.classList.remove("hidden");
+        });
+    });
+
+    // tombol close
+    closeModalBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+    });
+
+    // klik di luar modal untuk close
+    modal.addEventListener("click", function(e) {
+        if(e.target === modal) {
+            modal.classList.add("hidden");
+        }
+    });
+});
+</script>
+
