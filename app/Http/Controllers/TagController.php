@@ -43,7 +43,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('admin.edittags', compact('tag'));
+        //
     }
 
     /**

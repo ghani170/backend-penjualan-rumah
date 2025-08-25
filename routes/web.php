@@ -22,7 +22,6 @@ Route::middleware(['auth', 'is_admin'])->group(function (){
         'index' => 'admin.tags',
         'create' => 'tags.create',
         'store' => 'tags.store',
-        'edit' => 'tags.edit',
         'update' => 'tags.update',
         'destroy' => 'tags.destroy',
     ]);

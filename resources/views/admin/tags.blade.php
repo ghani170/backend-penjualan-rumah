@@ -60,7 +60,7 @@
 </div>
 
 {{-- Modal Edit --}}
-<div id="editModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+<div id="editModal" class="fixed inset-0 flex items-center justify-center bg-white/30 backdrop-blur-md bg-opacity-50 shadow-md z-50 hidden focus:outline-none">
     <div class="bg-white rounded-lg w-96 shadow-lg">
         <form id="editForm" method="POST">
             @csrf
