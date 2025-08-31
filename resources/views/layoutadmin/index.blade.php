@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard Modern</title>
+    <title>@yield('title', 'Admin Dashboard')</title>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
@@ -20,17 +20,13 @@
             </div>
             <nav class="mt-6">
                 <div class="px-6 py-2 text-xs text-gray-500 uppercase">Menu Utama</div>
-                <a href="#" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
+                <a href="{{ route('admin.index') }}" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
                     <i class="fas fa-shopping-cart mr-3"></i>
-                    <span>Produk</span>
-                </a>
-                <a href="{{ route('admin.tambahproduk') }}" class="flex items-center px-6 py-3 text-gray-700 bg-primary bg-opacity-10 border-r-4 border-primary">
-                    <i class="fas fa-home mr-3 text-primary"></i>
-                    <span>Tambah Produk</span>
+                    <span>Kelola Produk</span>
                 </a>
                 <a href="{{ route('admin.tags') }}" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
                     <i class="fas fa-users mr-3"></i>
-                    <span>Tambah Tag</span>
+                    <span>Kelola Tag</span>
                 </a>
                 
                 <a href="#" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
@@ -90,16 +86,13 @@
 
             <!-- Content -->
             <main class="p-6">
-                <div class="mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800">Dashboard</h2>
-                    <p class="text-gray-600">Selamat datang di panel admin</p>
-                </div>
+                
                 
 
                 @yield('content')
 
                 <!-- Table -->
-                <div class="bg-white rounded-lg shadow mb-6">
+                <!-- <div class="bg-white rounded-lg shadow mb-5">
                     <div class="p-6 border-b border-gray-200">
                         <h3 class="text-lg font-bold text-gray-800">Daftar Pengguna Terbaru</h3>
                     </div>
@@ -187,7 +180,7 @@
                 </div>
             </main>
         </div>
-    </div>
+    </div> -->
     
     
     <script>

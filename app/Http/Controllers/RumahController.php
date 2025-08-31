@@ -11,4 +11,9 @@ class RumahController extends Controller
       $rumah = Rumah::with('images', 'tags')->latest()->take(3)->get();
       return view('rumah.home', compact('rumah'));
    }
+
+   public function shop() {
+      $rumah = Rumah::with('images', 'tags')->latest()->get();
+      return view('rumah.shop', compact('rumah'));
+   }
 }

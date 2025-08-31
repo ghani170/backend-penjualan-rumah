@@ -15,6 +15,8 @@ class Rumah extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'rumah_tag');
+        return $this->belongsToMany(Tag::class, 'rumah_tag',)
+            ->withPivot('position')
+            ->orderBy('pivot_position', 'asc');
     }
 }

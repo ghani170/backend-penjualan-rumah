@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('rumah_images', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('rumah_id')->constrained()->onDelete('cascade');
-            $table->string('path');
-            $table->unsignedTinyInteger('position'); // posisi gambar (1-5)
-            $table->timestamps();
+        Schema::table('rumah_tag', function (Blueprint $table) {
+            $table->integer('position')->nullable()->after('tag_id');
         });
-
     }
 
     /**
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rumah_images');
+        Schema::table('rumah_tag', function (Blueprint $table) {
+            $table->dropColumn('position');
+        });
     }
 };

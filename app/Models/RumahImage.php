@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RumahImage extends Model
 {
-    protected $fillable = ['rumah_id', 'path'];
+    protected $fillable = ['rumah_id', 'path', 'position'];
 
     public function rumah()
     {
