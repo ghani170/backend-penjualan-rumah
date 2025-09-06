@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Penjualan Rumah</title>
+    <title>@yield('title')</title>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -76,7 +76,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="{{ route('rumah.index') }}" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">Home</a>
                     <a href="{{ route('rumah.shop') }}" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">Shop</a>
-                    <a href="about.html" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">About</a>
+                    <a href="{{ route('rumah.about') }}" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">About</a>
                     <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">Contact</a>
                 </div>
                 

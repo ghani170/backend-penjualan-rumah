@@ -97,3 +97,73 @@
 
             
         });
+
+         document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("product-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalLocation = document.getElementById("modal-location");
+    const modalPrice = document.getElementById("modal-price");
+    const modalDescription = document.getElementById("modal-description");
+    const modalTags = document.getElementById("modal-tags");
+    const modalImagesContainer = document.getElementById("modal-images-container");
+
+    let currentIndex = 0;
+    let images = [];
+
+    document.querySelectorAll(".view-details-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            modalTitle.textContent = button.dataset.nama;
+            modalLocation.textContent = button.dataset.lokasi;
+            modalPrice.textContent = "Rp. " + button.dataset.harga;
+            modalDescription.textContent = button.dataset.deskripsi;
+
+            // Tambahkan tags
+            modalTags.innerHTML = "";
+            const tags = JSON.parse(button.dataset.tags);
+            tags.forEach(tag => {
+                const span = document.createElement("span");
+                span.className = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-300 text-gray-800";
+                span.textContent = tag.nama;
+                modalTags.appendChild(span);
+            });
+
+            // Load gambar
+            images = JSON.parse(button.dataset.gambar);
+            modalImagesContainer.innerHTML = "";
+            images.forEach((img, index) => {
+                const imgEl = document.createElement("img");
+                imgEl.src = `/storage/${img}`;
+                imgEl.className = "w-full h-80 object-cover flex-shrink-0";
+                modalImagesContainer.appendChild(imgEl);
+            });
+
+            currentIndex = 0;
+            updateSlider();
+
+            modal.classList.remove("hidden");
+        });
+    });
+
+    // Tombol tutup
+    document.getElementById("modal-close").addEventListener("click", () => {
+        modal.classList.add("hidden");
+    });
+
+    // Tombol navigasi
+    document.getElementById("prev-btn").addEventListener("click", () => {
+        if (currentIndex > 0) currentIndex--;
+        else currentIndex = images.length - 1;
+        updateSlider();
+    });
+
+    document.getElementById("next-btn").addEventListener("click", () => {
+        if (currentIndex < images.length - 1) currentIndex++;
+        else currentIndex = 0;
+        updateSlider();
+    });
+
+    function updateSlider() {
+        const offset = -currentIndex * 100;
+        modalImagesContainer.style.transform = `translateX(${offset}%)`;
+    }
+});

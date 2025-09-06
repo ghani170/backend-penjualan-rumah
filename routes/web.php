@@ -10,6 +10,7 @@ Route::get('/', function () {
     return view('rumah.home');
 });
 Route::get('/', [RumahController::class, 'index'])->name('rumah.index');
+Route::get('/about', [RumahController::class, 'about'])->name('rumah.about');
 Route::get('/shop', [RumahController::class, 'shop'])->name('rumah.shop');
 Route::get('login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
