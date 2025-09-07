@@ -17,6 +17,11 @@ class RumahController extends Controller
       return view('rumah.shop', compact('rumah'));
    }
 
+   public function show($id) {
+      $rumahh = Rumah::find($id);
+      return view('rumah.shop', ['rumahh'=> $rumahh ]); 
+   }
+
    public function about() {
       return view('rumah.about');
    }

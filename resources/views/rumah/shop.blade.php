@@ -113,9 +113,11 @@
 
              <!-- Action Button -->
             <div class="flex items-center px-2 py-4 mt-2">
-                <a href="https://wa.me/+6289632840907?text=Hallo,%20saya%20ingin%20bertanya%20tentang rumah ini..." class="px-6 py-3 bg-gradient-to-r text-center from-green-500 to-green-600 text-white text-base font-medium rounded-lg w-full shadow-md hover:from-green-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 transform hover:-translate-y-0.5">
+                @foreach($rumah as $itemss)
+                <a href="https://wa.me/+6289632840907?text=Hallo,%20saya%20ingin%20bertanya%20tentang rumah ini: {{ $itemss->nama_rumah }}..." class="px-6 py-3 bg-gradient-to-r text-center from-green-500 to-green-600 text-white text-base font-medium rounded-lg w-full shadow-md hover:from-green-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 transform hover:-translate-y-0.5">
                   <i class="fa-brands fa-whatsapp fa-xl"></i>  Hubungi WhatsApp
                 </a>
+                @endforeach
             </div>
             
             

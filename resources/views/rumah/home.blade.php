@@ -26,7 +26,7 @@
     </section>
 
      <!-- popup item -->
-             <div id="product-modal" class="fixed absolute inset-0 z-50 hidden bg-gray-900/80 backdrop-blur-md overflow-y-auto h-full w-full transition-opacity duration-300">
+             <div id="product-modal" class="fixed inset-0 z-50 hidden bg-gray-900/80 backdrop-blur-md overflow-y-auto h-full w-full transition-opacity duration-300">
     <div class="relative top-5 mx-auto p-5 w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 shadow-xl rounded-xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 transform transition-transform duration-300">
         <!-- Close button (X) -->
         <button id="modal-close" class="absolute top-4 right-4 z-10 bg-red-400 rounded-full p-2 shadow-md hover:bg-red-200 transition-colors duration-200">
