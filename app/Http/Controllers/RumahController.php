@@ -25,4 +25,8 @@ class RumahController extends Controller
    public function about() {
       return view('rumah.about');
    }
+
+   public function contact() {
+      return view('rumah.contact');
+   }
 }

@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('rumahs', function (Blueprint $table) {
             $table->id();
             $table->string('nama_rumah');
+            $table->string('luas_bangunan');
+            $table->string('luas_tanah');
+            $table->string('listrik');
+            $table->string('sertifikat');
             $table->text('deskripsi');
             $table->string('harga');
             $table->string('lokasi');

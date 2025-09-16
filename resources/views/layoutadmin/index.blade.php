@@ -29,20 +29,20 @@
                     <span>Kelola Tag</span>
                 </a>
                 
-                <a href="#" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
+                <!-- <a href="#" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
                     <i class="fas fa-chart-bar mr-3"></i>
                     <span>Laporan</span>
                 </a>
                 <a href="#" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
                     <i class="fas fa-cog mr-3"></i>
                     <span>Pengaturan</span>
-                </a>
+                </a> -->
                 
                 <div class="px-6 py-2 mt-6 text-xs text-gray-500 uppercase">Lainnya</div>
-                <a href="#" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
+                <!-- <a href="#" class="flex items-center px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
                     <i class="fas fa-question-circle mr-3"></i>
                     <span>Bantuan</span>
-                </a>
+                </a> -->
                 <form method="POST" action="{{ route('logout') }}" class="flex px-6 py-3 mt-1 text-gray-600 hover:bg-gray-100">
                     <div></div>
                     <button type="submit" class="flex items-center w-full">

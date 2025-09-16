@@ -27,7 +27,7 @@
 
      <!-- popup item -->
              <div id="product-modal" class="fixed inset-0 z-50 hidden bg-gray-900/80 backdrop-blur-md overflow-y-auto h-full w-full transition-opacity duration-300">
-    <div class="relative top-5 mx-auto p-5 w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 shadow-xl rounded-xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 transform transition-transform duration-300">
+    <div class="relative top-5 mx-auto p-5 w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 shadow-xl rounded-xl bg-white  border border-gray-200 transform transition-transform duration-300">
         <!-- Close button (X) -->
         <button id="modal-close" class="absolute top-4 right-4 z-10 bg-red-400 rounded-full p-2 shadow-md hover:bg-red-200 transition-colors duration-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -36,7 +36,7 @@
         </button>
         
         <div class="mt-2">
-            <h3 class="text-2xl font-bold text-gray-800 text-center mb-6" id="modal-title"></h3>
+            <h3 class="text-2xl font-bold text-gray-900 text-center mb-6" id="modal-title"></h3>
             
             <!-- Image Gallery -->
             <div class="relative w-full h-72 md:h-80 overflow-hidden rounded-xl shadow-lg mb-6">
@@ -46,12 +46,12 @@
 
                 <!-- Navigation buttons -->
                 <button id="prev-btn" class="absolute top-1/2 left-3 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-all duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
                 <button id="next-btn" class="absolute top-1/2 right-3 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-all duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
@@ -63,9 +63,9 @@
             </div>
             
             <!-- Product Details -->
-            <div class="px-2 py-4">
+            <div class="px-2 py-4 ">
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                    <p class="text-gray-700 text-lg font-semibold flex items-center" id="modal-location">
+                    <p class="text-gray-900 text-lg font-semibold flex items-center" id="modal-location">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -75,8 +75,28 @@
                     <p class="text-blue-600 text-2xl font-bold mt-2 md:mt-0" id="modal-price"></p>
                 </div>
                 
-                <div class="mb-5">
-                    <p class="text-gray-500 text-sm mt-4 leading-relaxed" id="modal-description"></p>
+                <div class="bg-gray-100 rounded-lg p-4">
+                    <h2 class="text-xl font-bold p-1 text-gray-900">Detail Properti:</h2>
+                    <div class="grid grid-cols-[200px_auto] gap-y-2 p-3">
+                    <p class="font-semibold">Luas Bangunan</p>
+                    <p id="modal-luasbangunan"></p>
+
+                    <p class="font-semibold">Luas Tanah</p>
+                    <p id="modal-luastanah"></p>
+
+                    <p class="font-semibold">Listrik</p>
+                    <p id="modal-listrik"></p>
+
+                    <p class="font-semibold">Sertifikat</p>
+                    <p id="modal-sertifikat"></p>
+                </div>
+
+                </div>
+
+
+                <div class="mb-5 mt-6">
+                    <h2 class="text-xl font-bold ml-3 mb-2">Deskripsi:</h2>
+                    <p class="text-gray-500 text-sm mt-2 leading-relaxed ml-5" id="modal-description"></p>
                 </div>
                 
                 <div class="mt-4 flex flex-wrap gap-2" id="modal-tags"></div>
@@ -84,7 +104,7 @@
 
              <!-- Action Button -->
             <div class="flex items-center px-2 py-4 mt-2">
-                <a href="https://wa.me/+6289632840907?text=Hallo,%20saya%20ingin%20bertanya%20tentang rumah ini..." class="px-6 py-3 bg-gradient-to-r text-center from-green-500 to-green-600 text-white text-base font-medium rounded-lg w-full shadow-md hover:from-green-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 transform hover:-translate-y-0.5">
+                <a id="waButton" target="_blank" class="px-6 py-3 bg-gradient-to-r text-center from-green-500 to-green-600 text-white text-base font-medium rounded-lg w-full shadow-md hover:from-green-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 transform hover:-translate-y-0.5">
                   <i class="fa-brands fa-whatsapp fa-xl"></i>  Hubungi WhatsApp
                 </a>
             </div>
@@ -139,6 +159,10 @@
                             data-nama="{{ $item->nama_rumah }}"
                             data-lokasi="{{ $item->lokasi }}"
                             data-harga="{{ $item->harga }}"
+                            data-luas_bangunan="{{ $item->luas_bangunan }}"
+                            data-luas_tanah="{{ $item->luas_tanah }}"
+                            data-listrik="{{ $item->listrik }}"
+                            data-sertifikat="{{ $item->sertifikat }}"
                             data-deskripsi="{{ $item->deskripsi ?? 'Tidak ada deskripsi.' }}"
                             data-gambar="{{ $item->images->pluck('path')->toJson() }}"
                             data-tags="{{ $item->tags->toJson() }}">

@@ -1,11 +1,12 @@
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+         // JavaScript untuk hamburger menu
+       const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
-        // Services dropdown toggle
+
+         // Services dropdown toggle
         const servicesDropdownButton = document.getElementById('services-dropdown-button');
         const servicesDropdown = document.getElementById('services-dropdown');
         
@@ -15,6 +16,7 @@
             icon.classList.toggle('fa-chevron-down');
             icon.classList.toggle('fa-chevron-up');
         });
+
          // Gear dropdown toggle
         const gearDropdownButton = document.getElementById('gear-dropdown-button');
         const gearDropdown = document.getElementById('gear-dropdown');
@@ -24,7 +26,7 @@
             gearDropdown.classList.toggle('hidden');
         });
 
-         // Dark mode functionality
+        // Dark mode functionality
         document.addEventListener('DOMContentLoaded', function() {
             // Dark mode toggle elements
             const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -87,93 +89,5 @@
                 }
             });
 
-            
+
         });
-
-        document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("product-modal");
-    const modalTitle = document.getElementById("modal-title");
-    const modalLocation = document.getElementById("modal-location");
-    const modalPrice = document.getElementById("modal-price");
-    const modalluasbangunan = document.getElementById("modal-luasbangunan");
-    const modalluastanah = document.getElementById("modal-luastanah");
-    const modallistrik = document.getElementById("modal-listrik");
-    const modalsertifikat = document.getElementById("modal-sertifikat");
-    const modalDescription = document.getElementById("modal-description");
-    const modalTags = document.getElementById("modal-tags");
-    const modalImagesContainer = document.getElementById("modal-images-container");
-
-    let currentIndex = 0;
-    let images = [];
-
-    document.querySelectorAll(".view-details-btn").forEach(button => {
-        button.addEventListener("click", () => {
-            modalTitle.textContent = button.dataset.nama;
-            modalLocation.textContent = button.dataset.lokasi;
-            modalPrice.textContent = "Rp. " + button.dataset.harga;
-            modalluasbangunan.textContent = button.dataset.luas_bangunan + "m²" ;
-            modalluastanah.textContent = button.dataset.luas_tanah + "m²" ;
-            modallistrik.textContent = button.dataset.listrik + " Watt" ;
-            modalsertifikat.textContent = button.dataset.sertifikat;
-            modalDescription.textContent = button.dataset.deskripsi;
-
-            // Tambahkan tags
-            modalTags.innerHTML = "";
-            const tags = JSON.parse(button.dataset.tags);
-            tags.forEach(tag => {
-                const span = document.createElement("span");
-                span.className = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-300 text-gray-800";
-                span.textContent = tag.nama;
-                modalTags.appendChild(span);
-            });
-
-            // Load gambar
-            images = JSON.parse(button.dataset.gambar);
-            modalImagesContainer.innerHTML = "";
-            images.forEach((img, index) => {
-                const imgEl = document.createElement("img");
-                imgEl.src = `/storage/${img}`;
-                imgEl.className = "w-full h-80 object-cover flex-shrink-0";
-                modalImagesContainer.appendChild(imgEl);
-            });
-
-            //button whatsapp
-            // button whatsapp
-            const nomor = "6289632840907";
-            const pesan = `Hallo, saya ingin bertanya tentang rumah ${button.dataset.nama}`;
-            document.getElementById('waButton').href = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
-
-
-            currentIndex = 0;
-            updateSlider();
-
-            modal.classList.remove("hidden");
-        });
-    });
-
-    // Tombol tutup
-    document.getElementById("modal-close").addEventListener("click", () => {
-        modal.classList.add("hidden");
-    });
-
-    // Tombol navigasi
-    document.getElementById("prev-btn").addEventListener("click", () => {
-        if (currentIndex > 0) currentIndex--;
-        else currentIndex = images.length - 1;
-        updateSlider();
-    });
-
-    document.getElementById("next-btn").addEventListener("click", () => {
-        if (currentIndex < images.length - 1) currentIndex++;
-        else currentIndex = 0;
-        updateSlider();
-    });
-
-    function updateSlider() {
-        const offset = -currentIndex * 100;
-        modalImagesContainer.style.transform = `translateX(${offset}%)`;
-    }
-});
-
-
-        

@@ -103,6 +103,10 @@
     const modalTitle = document.getElementById("modal-title");
     const modalLocation = document.getElementById("modal-location");
     const modalPrice = document.getElementById("modal-price");
+    const modalluasbangunan = document.getElementById("modal-luasbangunan");
+    const modalluastanah = document.getElementById("modal-luastanah");
+    const modallistrik = document.getElementById("modal-listrik");
+    const modalsertifikat = document.getElementById("modal-sertifikat");
     const modalDescription = document.getElementById("modal-description");
     const modalTags = document.getElementById("modal-tags");
     const modalImagesContainer = document.getElementById("modal-images-container");
@@ -115,6 +119,10 @@
             modalTitle.textContent = button.dataset.nama;
             modalLocation.textContent = button.dataset.lokasi;
             modalPrice.textContent = "Rp. " + button.dataset.harga;
+            modalluasbangunan.textContent = button.dataset.luas_bangunan + "m²" ;
+            modalluastanah.textContent = button.dataset.luas_tanah + "m²" ;
+            modallistrik.textContent = button.dataset.listrik + " Watt" ;
+            modalsertifikat.textContent = button.dataset.sertifikat;
             modalDescription.textContent = button.dataset.deskripsi;
 
             // Tambahkan tags
@@ -136,6 +144,11 @@
                 imgEl.className = "w-full h-80 object-cover flex-shrink-0";
                 modalImagesContainer.appendChild(imgEl);
             });
+
+            // button whatsapp
+            const nomor = "6289632840907";
+            const pesan = `Hallo, saya ingin bertanya tentang rumah ${button.dataset.nama}`;
+            document.getElementById('waButton').href = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
 
             currentIndex = 0;
             updateSlider();

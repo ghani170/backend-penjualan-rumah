@@ -23,7 +23,7 @@
                     </p>
                 </div>
                 <div class="md:w-1/2 bg-blue-100 flex items-center justify-center p-8">
-                    <img src="image/rumah2.jpg" alt="rumah" class="rounded-lg shadow-md w-full h-auto max-h-96 object-cover">
+                    <img src="{{ asset('images/rumah2.jpg') }}" alt="rumah" class="rounded-lg shadow-md w-full h-auto max-h-96 object-cover">
                 </div>
             </div>
         </div>
@@ -64,10 +64,12 @@
                     </ul>
                 </div>
                 <div class="md:w-1/2 bg-blue-100 flex items-center justify-center p-8">
-                    <img src="image/rumah3.jpg" alt="rumah" class="rounded-lg shadow-md w-full h-auto max-h-96 object-cover">
+                    <img src="{{ asset('images/rumah3.jpg') }}" alt="rumah" class="rounded-lg shadow-md w-full h-auto max-h-96 object-cover">
                 </div>
             </div>
         </div>
     </div>
     </div>
+
+    <script src="{{ asset('js/about.js') }}"></script>
 @endsection

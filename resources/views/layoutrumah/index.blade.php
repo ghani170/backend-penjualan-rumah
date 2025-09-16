@@ -12,6 +12,9 @@
         .dark {
             color-scheme: dark;
         }
+        .dark .bg-gradient-to-br {
+            background-color: #111827;
+        }
 
         .dark .bg-white {
             background-color: #182130;
@@ -77,7 +80,7 @@
                     <a href="{{ route('rumah.index') }}" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">Home</a>
                     <a href="{{ route('rumah.shop') }}" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">Shop</a>
                     <a href="{{ route('rumah.about') }}" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">About</a>
-                    <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">Contact</a>
+                    <a href="{{ route('rumah.contact') }}" class="text-gray-900 hover:text-blue-600 px-3 py-2 font-bold">Contact</a>
                 </div>
                 
                 <!-- CTA Button -->
@@ -113,8 +116,8 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="{{ route('rumah.index') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Home</a>
                 <a href="{{ route('rumah.shop') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Shop</a>
-                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">About</a>
-                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Contact</a>
+                <a href="{{ route('rumah.about') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">About</a>
+                <a href="{{ route('rumah.contact') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Contact</a>
 
                 <!-- Services dropdown -->
                 <div class="relative">

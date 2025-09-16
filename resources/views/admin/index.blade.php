@@ -43,12 +43,41 @@
                                             required>
                                     </div>
                                     <div>
-                                        <label for="deskripsi" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                            Deskripsi
+                                        <label for="luas_bangunan" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Luas bangunan (m²)
                                         </label>
-                                        <input type="text" id="deskripsi" name="deskripsi" 
+                                        <input type="text" id="luas_bangunan" name="luas_bangunan" 
                                             class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
                                             required>
+                                    </div>
+                                    <div>
+                                        <label for="luas_tanah" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Luas tanah (m²)
+                                        </label>
+                                        <input type="text" id="luas_tanah" name="luas_tanah" 
+                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                            required>
+                                    </div>
+                                    <div>
+                                        <label for="listrik" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Listrik (Watt)
+                                        </label>
+                                        <input type="text" id="listrik" name="listrik" 
+                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                            required>
+                                    </div>
+                                    <div>
+                                        <label for="listrik" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Sertifikat
+                                        </label>
+                                        <input type="text" id="sertifikat" name="sertifikat" 
+                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                            required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                                        <textarea 
+                                            id="deskripsi" name="deskripsi" class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm" required></textarea>
                                     </div>
                                     <div>
                                         <label for="lokasi" class="block text-left text-sm font-medium text-gray-700 mb-2">
@@ -180,7 +209,7 @@
                         <td class="px-6 py-4">{{ $item->harga }}</td>
                         <td class="px-6 py-4">{{ $item->deskripsi }}</td>
                         <td class="px-6 py-4">{{ $item->lokasi }}</td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 flex">
                             <button 
                             command="show-modal" 
                             commandfor="editDialog-{{ $item->id }}" 
@@ -230,6 +259,30 @@
                                                         <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
                                                         <textarea name="deskripsi" 
                                                             class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">{{ $item->deskripsi }}</textarea>
+                                                    </div>
+                                                    
+                                                    <div class="mb-3">
+                                                        <label class="block text-sm font-medium text-gray-700">Luas Bangunan (m²)</label>
+                                                        <input type="text" name="luas_bangunan" value="{{ $item->luas_bangunan }}" 
+                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="block text-sm font-medium text-gray-700">Luas Tanah (m²)</label>
+                                                        <input type="text" name="luas_tanah" value="{{ $item->luas_tanah }}" 
+                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="block text-sm font-medium text-gray-700">Listrik (Watt)</label>
+                                                        <input type="text" name="listrik" value="{{ $item->listrik }}" 
+                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="block text-sm font-medium text-gray-700">Sertifikat</label>
+                                                        <input type="text" name="sertifikat" value="{{ $item->sertifikat }}" 
+                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
                                                     </div>
 
                                                     <div class="mb-3">
