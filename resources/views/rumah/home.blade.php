@@ -60,6 +60,12 @@
                 <div id="image-indicators" class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
                     <!-- Indicators will be added by JS -->
                 </div>
+
+                <!-- Thumbnail Preview -->
+                <div id="thumbnail-container" class="flex justify-center space-x-2 mt-3"></div>
+
+                    
+
             </div>
             
             <!-- Product Details -->
@@ -99,7 +105,6 @@
                     <p class="text-gray-500 text-sm mt-2 leading-relaxed ml-5" id="modal-description"></p>
                 </div>
                 
-                <div class="mt-4 flex flex-wrap gap-2" id="modal-tags"></div>
             </div>
 
              <!-- Action Button -->
@@ -149,11 +154,7 @@
                            
                         </div>
                         <div class="mt-5 flex items-center justify-between">
-                            <div class="flex space-x-2">
-                                @foreach($item->tags as $tag)
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-300 text-gray-800">{{ $tag->nama }}</span>
-                                @endforeach
-                            </div>
+                            
                             <button 
                             class="view-details-btn p-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 text-sm font-medium"
                             data-nama="{{ $item->nama_rumah }}"
@@ -165,7 +166,7 @@
                             data-sertifikat="{{ $item->sertifikat }}"
                             data-deskripsi="{{ $item->deskripsi ?? 'Tidak ada deskripsi.' }}"
                             data-gambar="{{ $item->images->pluck('path')->toJson() }}"
-                            data-tags="{{ $item->tags->toJson() }}">
+                            >
                             View Details <span aria-hidden="true">&rarr;</span>
                         </button>
                         </div>

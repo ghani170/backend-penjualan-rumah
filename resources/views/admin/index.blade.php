@@ -25,60 +25,63 @@
                             <div class="sm:flex sm:items-start">
                                 <form action="{{ route('admin.tambahproduk.store') }}" method="POST" class="w-full" id="formTambah" enctype="multipart/form-data">
                                     @csrf
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label for="nama" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                                Nama Rumah
+                                            </label>
+                                            <input type="text" id="nama" name="nama_rumah" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label for="harga" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                                Harga
+                                            </label>
+                                            <input type="text" id="harga" name="harga" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
+                                    </div>
                                     
-                                    <div>
-                                        <label for="nama" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                            Nama Rumah
-                                        </label>
-                                        <input type="text" id="nama" name="nama_rumah" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label for="luas_bangunan" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                                Luas bangunan (m²)
+                                            </label>
+                                            <input type="text" id="luas_bangunan" name="luas_bangunan" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label for="luas_tanah" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                                Luas tanah (m²)
+                                            </label>
+                                            <input type="text" id="luas_tanah" name="luas_tanah" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label for="harga" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                            Harga
-                                        </label>
-                                        <input type="text" id="harga" name="harga" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label for="listrik" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                                Listrik (Watt)
+                                            </label>
+                                            <input type="text" id="listrik" name="listrik" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label for="listrik" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                                Sertifikat
+                                            </label>
+                                            <input type="text" id="sertifikat" name="sertifikat" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label for="luas_bangunan" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                            Luas bangunan (m²)
-                                        </label>
-                                        <input type="text" id="luas_bangunan" name="luas_bangunan" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
-                                    </div>
-                                    <div>
-                                        <label for="luas_tanah" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                            Luas tanah (m²)
-                                        </label>
-                                        <input type="text" id="luas_tanah" name="luas_tanah" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
-                                    </div>
-                                    <div>
-                                        <label for="listrik" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                            Listrik (Watt)
-                                        </label>
-                                        <input type="text" id="listrik" name="listrik" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
-                                    </div>
-                                    <div>
-                                        <label for="listrik" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                            Sertifikat
-                                        </label>
-                                        <input type="text" id="sertifikat" name="sertifikat" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                                        <textarea 
-                                            id="deskripsi" name="deskripsi" class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm" required></textarea>
-                                    </div>
+                                    
                                     <div>
                                         <label for="lokasi" class="block text-left text-sm font-medium text-gray-700 mb-2">
                                         Lokasi
@@ -86,34 +89,52 @@
                                         <input type="text" id="lokasi" name="lokasi" 
                                             class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
                                             required>
+                                    </div>
+
                                     <div>
-                                        <label for="gambar1" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                        Gambar 1
-                                        </label>
-                                        <input type="file" id="gambar1" name="gambar1" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
-                                    <div>
-                                        <label for="gambar2" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                        Gambar 2
-                                        </label>
-                                        <input type="file" id="gambar2" name="gambar2" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
-                                    <div>
-                                        <label for="gambar3" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                        Gambar 3
-                                        </label>
-                                        <input type="file" id="gambar3" name="gambar3" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
-                                    <div>
-                                        <label for="gambar4" class="block text-left text-sm font-medium text-gray-700 mb-2">
-                                        Gambar 4
-                                        </label>
-                                        <input type="file" id="gambar4" name="gambar4" 
-                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
-                                            required>
+                                        <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                                        <textarea 
+                                            id="deskripsi" name="deskripsi" class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm" required></textarea>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label for="gambar1" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Gambar 1
+                                            </label>
+                                            <input type="file" id="gambar1" name="gambar1" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label for="gambar2" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Gambar 2
+                                            </label>
+                                            <input type="file" id="gambar2" name="gambar2" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label for="gambar3" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Gambar 3
+                                            </label>
+                                            <input type="file" id="gambar3" name="gambar3" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label for="gambar4" class="block text-left text-sm font-medium text-gray-700 mb-2">
+                                            Gambar 4
+                                            </label>
+                                            <input type="file" id="gambar4" name="gambar4" 
+                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
+                                                required>
+                                        </div>
+                                    </div>
+                                    
                                     <div>
                                         <label for="gambar5" class="block text-left text-sm font-medium text-gray-700 mb-2">
                                         Gambar 5
@@ -122,38 +143,7 @@
                                             class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300 p-3 shadow-sm" 
                                             required>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="block text-sm font-medium text-gray-700">Pilih Tag Pertama</label>
-                                        <select name="tags[]" required class="border p-2 w-full mb-2" id="tag1Tambah">
-                                            <option value="">-- Pilih Tag Pertama --</option>
-                                            @foreach($tags as $tag)
-                                                <option value="{{ $tag->id }}">{{ $tag->nama }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="block text-sm font-medium text-gray-700">Pilih Tag Kedua</label>
-                                        <select name="tags[]" required class="border p-2 w-full rounded-lg" id="tag2Tambah">
-                                            <option value="">-- Pilih Tag Kedua --</option>
-                                            @foreach($tags as $tag)
-                                                <option value="{{ $tag->id }}">{{ $tag->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="block text-sm font-medium text-gray-700">Pilih Tag Ketiga</label>
-                                        <select name="tags[]" required class="border p-2 w-full rounded-lg" id="tag3Tambah">
-                                            <option value="">-- Pilih Tag Ketiga --</option>
-                                            @foreach($tags as $tag)
-                                                <option value="{{ $tag->id }}"> 
-                                                    {{ $tag->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    
                                     
                                     <div class="flex justify-end space-x-3 mt-2 pt-5 border-t border-gray-200">
                                         <button type="button" command="close" commandfor="dialog" 
@@ -242,47 +232,46 @@
                                                 <form action="{{ route('admin.tambahproduk.update', $item->id) }}" method="POST" enctype="multipart/form-data" class="w-full" id="formEdit-{{ $item->id }}">
                                                     @csrf
                                                     @method('PUT')
+                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        <div class="mb-3">
+                                                            <label class="block text-sm font-medium text-gray-700">Nama Rumah</label>
+                                                            <input type="text" name="nama_rumah" value="{{ $item->nama_rumah }}" 
+                                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Nama Rumah</label>
-                                                        <input type="text" name="nama_rumah" value="{{ $item->nama_rumah }}" 
-                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Harga</label>
-                                                        <input type="text" name="harga" value="{{ $item->harga }}" 
-                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                                                        <textarea name="deskripsi" 
-                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">{{ $item->deskripsi }}</textarea>
+                                                        <div class="mb-3">
+                                                            <label class="block text-sm font-medium text-gray-700">Harga</label>
+                                                            <input type="text" name="harga" value="{{ $item->harga }}" 
+                                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                        </div>
                                                     </div>
                                                     
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Luas Bangunan (m²)</label>
-                                                        <input type="text" name="luas_bangunan" value="{{ $item->luas_bangunan }}" 
-                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        <div class="mb-3">
+                                                            <label class="block text-sm font-medium text-gray-700">Luas Bangunan (m²)</label>
+                                                            <input type="text" name="luas_bangunan" value="{{ $item->luas_bangunan }}" 
+                                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label class="block text-sm font-medium text-gray-700">Luas Tanah (m²)</label>
+                                                            <input type="text" name="luas_tanah" value="{{ $item->luas_tanah }}" 
+                                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                        </div>
                                                     </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Luas Tanah (m²)</label>
-                                                        <input type="text" name="luas_tanah" value="{{ $item->luas_tanah }}" 
-                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
-                                                    </div>
+                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        <div class="mb-3">
+                                                            <label class="block text-sm font-medium text-gray-700">Listrik (Watt)</label>
+                                                            <input type="text" name="listrik" value="{{ $item->listrik }}" 
+                                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Listrik (Watt)</label>
-                                                        <input type="text" name="listrik" value="{{ $item->listrik }}" 
-                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Sertifikat</label>
-                                                        <input type="text" name="sertifikat" value="{{ $item->sertifikat }}" 
-                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                        <div class="mb-3">
+                                                            <label class="block text-sm font-medium text-gray-700">Sertifikat</label>
+                                                            <input type="text" name="sertifikat" value="{{ $item->sertifikat }}" 
+                                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                        </div>
                                                     </div>
 
                                                     <div class="mb-3">
@@ -291,59 +280,41 @@
                                                             class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
                                                     </div>
 
-                                                   
-                                                    {{-- Loop gambar 1–5 --}}
-                                                    @for($i=1; $i<=5; $i++)
-                                                        <div class="mb-3">
-                                                            <label class="block text-sm font-medium text-gray-700">Gambar {{ $i }}</label>
-                                                            <input type="file" name="gambar{{ $i }}" 
-                                                                class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+                                                    <div class="mb-2">
+                                                        <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                                                        <textarea name="deskripsi" 
+                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">{{ $item->deskripsi }}</textarea>
+                                                    </div>
+                                                    
+                                                    {{-- Gambar 1–4 (grid 2 kolom) --}}
+                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        @for($i=1; $i<=4; $i++)
+                                                            <div class="mb-3">
+                                                                <label class="block text-sm font-medium text-gray-700">Gambar {{ $i }}</label>
+                                                                <input type="file" name="gambar{{ $i }}" 
+                                                                    class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
 
-                                                            @php $gambar = "gambar".$i; @endphp
-                                                            @if($item->$gambar)
-                                                                <img src="{{ asset('storage/'.$item->$gambar) }}" alt="gambar{{ $i }}" class="w-20 mt-2 rounded">
-                                                            @endif
-                                                        </div>
-                                                    @endfor
-
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Pilih Tag Pertama</label>
-                                                        <select name="tags[]" required class="border p-2 w-full rounded-lg">
-                                                            <option value="">-- Pilih Tag Pertama --</option>
-                                                            @foreach($tags as $tag)
-                                                                <option value="{{ $tag->id }}" 
-                                                                    {{ isset($item->tags[0]) && $item->tags[0]->id == $tag->id ? 'selected' : '' }}>
-                                                                    {{ $tag->nama }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
+                                                                @php $gambar = "gambar".$i; @endphp
+                                                                @if($item->$gambar)
+                                                                    <img src="{{ asset('storage/'.$item->$gambar) }}" alt="gambar{{ $i }}" class="w-20 mt-2 rounded shadow-md">
+                                                                @endif
+                                                            </div>
+                                                        @endfor
                                                     </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Pilih Tag Kedua</label>
-                                                        <select name="tags[]" required class="border p-2 w-full rounded-lg">
-                                                            <option value="">-- Pilih Tag Kedua --</option>
-                                                            @foreach($tags as $tag)
-                                                                <option value="{{ $tag->id }}" 
-                                                                    {{ isset($item->tags[1]) && $item->tags[1]->id == $tag->id ? 'selected' : '' }}>
-                                                                    {{ $tag->nama }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
+                                                    {{-- Gambar 5 (full width, normal) --}}
+                                                    <div class="mt-2">
+                                                        <label class="block text-sm font-medium text-gray-700">Gambar 5</label>
+                                                        <input type="file" name="gambar5" 
+                                                            class="w-full rounded-lg border-gray-300 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 p-3 shadow-sm">
+
+                                                        @if($item->gambar5)
+                                                            <img src="{{ asset('storage/'.$item->gambar5) }}" alt="gambar5" class="w-32 mt-2 rounded shadow-md">
+                                                        @endif
                                                     </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="block text-sm font-medium text-gray-700">Pilih Tag Ketiga</label>
-                                                        <select name="tags[]" required class="border p-2 w-full rounded-lg">
-                                                            <option value="">-- Pilih Tag Ketiga --</option>
-                                                            @foreach($tags as $tag)
-                                                                <option value="{{ $tag->id }}" 
-                                                                    {{ isset($item->tags[2]) && $item->tags[2]->id == $tag->id ? 'selected' : '' }}>
-                                                                    {{ $tag->nama }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
+
+                                                    
 
                                                     <div class="flex justify-end space-x-3 mt-4 pt-5 border-t border-gray-200">
                                                         <button type="button" command="close" commandfor="editDialog-{{ $item->id }}" 
@@ -381,58 +352,5 @@
     </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Validasi untuk form Tambah Data
-    let formTambah = document.getElementById("formTambah");
-    formTambah.addEventListener("submit", function(e) {
-        let selects = formTambah.querySelectorAll("select[name='tags[]']");
-        let values = Array.from(selects).map(s => s.value).filter(v => v !== "");
-        let uniqueValues = [...new Set(values)];
 
-        if (values.length > 0 && values.length !== uniqueValues.length) {
-            e.preventDefault();
-            document.getElementById('dialog').close();
-
-        // Tampilkan SweetAlert setelah pop-up form tertutup
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Tidak boleh memilih tag yang sama!',
-        }).then(() => {
-             // Opsional: Buka kembali pop-up form setelah SweetAlert ditutup
-             document.getElementById('dialog').showModal();
-        });
-        }
-    });
-
-    
-
-    // Validasi untuk setiap form Edit Produk
-    document.querySelectorAll('[id^="formEdit-"]').forEach(formEdit => {
-        formEdit.addEventListener("submit", function(e) {
-            let selects = formEdit.querySelectorAll("select[name='tags[]']");
-            let values = Array.from(selects).map(s => s.value).filter(v => v !== "");
-            let uniqueValues = [...new Set(values)];
-
-            if (values.length > 0 && values.length !== uniqueValues.length) {
-            e.preventDefault();
-
-            // Tutup dulu dialog edit
-            let dialog = formEdit.closest("dialog");
-            if (dialog) dialog.close();
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Tidak boleh memilih tag yang sama!',
-            }).then(() => {
-                // Buka lagi dialog edit setelah alert ditutup
-                if (dialog) dialog.showModal();
-            });
-            }
-        });
-    });
-});
-</script>
 @endsection

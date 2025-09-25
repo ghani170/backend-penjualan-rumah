@@ -13,10 +13,5 @@ class Rumah extends Model
         return $this->hasMany(RumahImage::class);
     }
 
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'rumah_tag',)
-            ->withPivot('position')
-            ->orderBy('pivot_position', 'asc');
-    }
+
 }

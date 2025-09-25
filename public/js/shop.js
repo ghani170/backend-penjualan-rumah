@@ -100,80 +100,116 @@
     const modallistrik = document.getElementById("modal-listrik");
     const modalsertifikat = document.getElementById("modal-sertifikat");
     const modalDescription = document.getElementById("modal-description");
-    const modalTags = document.getElementById("modal-tags");
     const modalImagesContainer = document.getElementById("modal-images-container");
+    const thumbnailContainer = document.getElementById("thumbnail-container");
+    const indicatorsContainer = document.getElementById("image-indicators");
 
     let currentIndex = 0;
     let images = [];
 
+    // Buka modal
     document.querySelectorAll(".view-details-btn").forEach(button => {
         button.addEventListener("click", () => {
             modalTitle.textContent = button.dataset.nama;
             modalLocation.textContent = button.dataset.lokasi;
             modalPrice.textContent = "Rp. " + button.dataset.harga;
-            modalluasbangunan.textContent = button.dataset.luas_bangunan + "m²" ;
-            modalluastanah.textContent = button.dataset.luas_tanah + "m²" ;
-            modallistrik.textContent = button.dataset.listrik + " Watt" ;
+            modalluasbangunan.textContent = button.dataset.luas_bangunan + " m²";
+            modalluastanah.textContent = button.dataset.luas_tanah + " m²";
+            modallistrik.textContent = button.dataset.listrik + " Watt";
             modalsertifikat.textContent = button.dataset.sertifikat;
             modalDescription.textContent = button.dataset.deskripsi;
 
-            // Tambahkan tags
-            modalTags.innerHTML = "";
-            const tags = JSON.parse(button.dataset.tags);
-            tags.forEach(tag => {
-                const span = document.createElement("span");
-                span.className = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-300 text-gray-800";
-                span.textContent = tag.nama;
-                modalTags.appendChild(span);
-            });
-
             // Load gambar
             images = JSON.parse(button.dataset.gambar);
-            modalImagesContainer.innerHTML = "";
+            loadImages(images);
+
+            // Load thumbnail
+            thumbnailContainer.innerHTML = "";
             images.forEach((img, index) => {
-                const imgEl = document.createElement("img");
-                imgEl.src = `/storage/${img}`;
-                imgEl.className = "w-full h-80 object-cover flex-shrink-0";
-                modalImagesContainer.appendChild(imgEl);
+                const thumb = document.createElement("img");
+                thumb.src = `/storage/${img}`;
+                thumb.className = "w-16 h-12 object-cover rounded-md border-2 border-transparent cursor-pointer transition duration-300";
+                thumb.addEventListener("click", () => {
+                    currentIndex = index;
+                    updateSlider();
+                });
+                thumbnailContainer.appendChild(thumb);
             });
 
-            //button whatsapp
-            // button whatsapp
-            const nomor = "6289632840907";
-            const pesan = `Hallo, saya ingin bertanya tentang rumah ${button.dataset.nama}`;
-            document.getElementById('waButton').href = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
+            // Load indicator (dot)
+            indicatorsContainer.innerHTML = "";
+            images.forEach((_, index) => {
+                const dot = document.createElement("div");
+                dot.className = "w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition duration-300";
+                dot.addEventListener("click", () => {
+                    currentIndex = index;
+                    updateSlider();
+                });
+                indicatorsContainer.appendChild(dot);
+            });
 
+            // WhatsApp Button
+            const nomor = "62895640327767";
+            const gambarPertama = images.length > 0 ? `/storage/${images[0]}` : '';
+            const pesan = `Hallo, saya ingin bertanya tentang rumah: ${button.dataset.nama}.\nLokasi: ${button.dataset.lokasi}.\nHarga: ${button.dataset.harga}`;
+            document.getElementById('waButton').href = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
 
             currentIndex = 0;
             updateSlider();
-
             modal.classList.remove("hidden");
         });
     });
 
-    // Tombol tutup
+    // Tutup modal
     document.getElementById("modal-close").addEventListener("click", () => {
         modal.classList.add("hidden");
     });
 
     // Tombol navigasi
     document.getElementById("prev-btn").addEventListener("click", () => {
-        if (currentIndex > 0) currentIndex--;
-        else currentIndex = images.length - 1;
+        if (images.length === 0) return;
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
         updateSlider();
     });
 
     document.getElementById("next-btn").addEventListener("click", () => {
-        if (currentIndex < images.length - 1) currentIndex++;
-        else currentIndex = 0;
+        if (images.length === 0) return;
+        currentIndex = (currentIndex + 1) % images.length;
         updateSlider();
     });
 
+    // Fungsi load images
+    function loadImages(images) {
+        modalImagesContainer.innerHTML = `
+            <div id="slider-inner" class="flex transition-transform duration-500 ease-in-out" style="width:${images.length * 100}%">
+                ${images.map(img => `
+                    <img src="/storage/${img}" class="w-full h-80 object-cover flex-shrink-0" />
+                `).join("")}
+            </div>
+        `;
+    }
+
+    // Update slider
     function updateSlider() {
+        const sliderInner = document.getElementById("slider-inner");
+        if (!sliderInner) return;
+
         const offset = -currentIndex * 100;
-        modalImagesContainer.style.transform = `translateX(${offset}%)`;
+        sliderInner.style.transform = `translateX(${offset}%)`;
+
+        // Highlight thumbnail
+        document.querySelectorAll("#thumbnail-container img").forEach((thumb, idx) => {
+            thumb.classList.toggle("border-blue-500", idx === currentIndex);
+        });
+
+        // Highlight indicator
+        document.querySelectorAll("#image-indicators div").forEach((dot, idx) => {
+            dot.classList.toggle("bg-blue-500", idx === currentIndex);
+            dot.classList.toggle("bg-gray-300", idx !== currentIndex);
+        });
     }
 });
+
 
 
         

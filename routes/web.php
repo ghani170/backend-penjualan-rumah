@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RumahController;
-use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,13 +22,6 @@ Route::middleware(['auth', 'is_admin'])->group(function (){
     Route::post('admin/tambahproduk/create', [AdminController::class, 'store'])->name('admin.tambahproduk.store');
     Route::put('admin/tambahproduk/update/{rumah}', [AdminController::class, 'updateRumah'])->name('admin.tambahproduk.update');
     Route::delete('admin/tambahproduk/delete/{rumah}', [AdminController::class, 'destroy'])->name('admin.destroy');
-    Route::resource('tags', TagController::class)->names([
-        'index' => 'admin.tags',
-        'create' => 'tags.create',
-        'store' => 'tags.store',
-        'update' => 'tags.update',
-        'destroy' => 'tags.destroy',
-    ]);
 });
 
 

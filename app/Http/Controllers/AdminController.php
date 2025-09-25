@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rumah;
-use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
      public function index() {
-        $products = Rumah::with(['images', 'tags'])->get();
-        $tags = Tag::all();
-        return view('admin.index', compact('products', 'tags'));
+        $products = Rumah::with(['images'])->get();
+        return view('admin.index', compact('products'));
     }
 
     
@@ -32,8 +30,6 @@ class AdminController extends Controller
             'gambar3'    => 'required|image|mimes:jpeg,png,jpg|max:20048',
             'gambar4'    => 'required|image|mimes:jpeg,png,jpg|max:20048',
             'gambar5'    => 'required|image|mimes:jpeg,png,jpg|max:20048',
-            'tags'       => 'required|array|min:1',
-            'tags.*'     => 'exists:tags,id',
         ]);
 
         $rumah = Rumah::create($data);
@@ -51,29 +47,15 @@ class AdminController extends Controller
         }
 
 
-        if (count($data['tags']) !== count(array_unique($data['tags']))) {
-            return back()->withErrors(['tags' => 'Tidak boleh memilih tag yang sama lebih dari sekali.'])
-                        ->withInput();
-        }
-
-        if ($request->has('tags')) {
-            $tags = $request->input('tags');
-            $syncData = [];
-            foreach ($tags as $index => $tagId) {
-                $syncData[$tagId] = ['position' => $index + 1];
-            }
-            $rumah->tags()->sync($syncData);
-        }
+        
 
 
         return redirect()->route('admin.index')->with('success', 'Produk berhasil ditambahkan');
     }
 
     public function edit(Rumah $rumah) {
-        $tags = Tag::all();
         return response()->json([
-            'rumah' => $rumah->load('tags','images'),
-            'tags'  => $tags
+            'rumah' => $rumah->load('images'),
         ]);
     }
 
@@ -93,27 +75,12 @@ class AdminController extends Controller
             'gambar3'    => 'image|mimes:jpeg,png,jpg|max:20048',
             'gambar4'    => 'image|mimes:jpeg,png,jpg|max:20048',
             'gambar5'    => 'image|mimes:jpeg,png,jpg|max:20048',
-            'tags'       => 'array|min:1',
-            'tags.*'     => 'exists:tags,id',
+            
         ]);
 
-        // Pindah validasi duplikasi ke sini
-        if (count($data['tags']) !== count(array_unique($data['tags']))) {
-            return back()->withErrors(['tags' => 'Tidak boleh memilih tag yang sama lebih dari sekali.'])->withInput();
-        }
 
         // Perbarui data Rumah terlebih dahulu
         $rumah->update($data);
-
-        // Sekarang, sinkronkan tag setelah data rumah diperbarui
-        if ($request->has('tags')) {
-            $tags = $request->input('tags'); 
-            $syncData = [];
-            foreach ($tags as $index => $tagId) {
-                $syncData[$tagId] = ['position' => $index + 1];
-            }
-            $rumah->tags()->sync($syncData);
-        }
 
 
        $index = 1;
